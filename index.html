@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="AutoGLM: Autonomous Foundation Agents for GUI">
+    <meta name="keywords" content="Autonomous GUI Agents for Web and Phone Use">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mind2Web</title>
+
+    <script type="module" src="https://md-block.verou.me/md-block.js"></script>
+
+    <!-- Load d3.js -->
+    <script src="https://d3js.org/d3.v4.js"></script>
+
+    <!-- Load plotly.js -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+    <!-- Color palette -->
+    <script src="https://d3js.org/d3-scale-chromatic.v1.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/d3plus-text@1"></script>
+
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZNP3SCQ1V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-MZNP3SCQ1V');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+    <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.svg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+    <script src="./static/js/bulma-carousel.min.js"></script>
+    <script src="./static/js/bulma-slider.min.js"></script>
+</head>
+
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="https://github.com/OSU-NLP-Group">
+          <span class="icon">
+            <i class="fas fa-home"></i>
+          </span>
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    More Research
+                </a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="https://arxiv.org/abs/2308.03688">
+                        AgentBench
+                    </a>
+                    <a class="navbar-item" href="https://arxiv.org/abs/2404.03648">
+                        AutoWebGLM
+                    </a>
+                    <a class="navbar-item" href="https://arxiv.org/abs/2408.06327">
+                        VisualAgentBench
+                    </a>
+                    <a class="navbar-item" href="">
+                        WebRL
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</nav>
+
+
+<section class="hero">
+    <div class="hero-body">
+        <div class="container is-max-widescreen">
+            <div class="columns is-centered">
+                <div class="column has-text-centered">
+                    <h1 class="title is-1 publication-title">
+                        AutoGLM: Autonomous Foundation Agents for GUI
+                    </h1>
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">Xiao Liu<sup>12</sup>,</span>
+                        <span class="author-block">Bo Qin<sup>1†</sup>,</span>
+                        <span class="author-block">Dongzhu Liang<sup>1†</sup>,</span>
+                        <span class="author-block">Guang Dong<sup>1†</sup>,</span>
+                        <span class="author-block">Hanyu Lai<sup>12*†</sup>,</span>
+                        <span class="author-block">Hanchen Zhang<sup>12*†</sup>,</span><br>
+                        <span class="author-block">Hanlin Zhao<sup>1†</sup>,</span>
+                        <span class="author-block">Iat Long Iong<sup>12*†</sup>,</span>
+                        <span class="author-block">Jiadai Sun<sup>1†</sup>,</span>
+                        <span class="author-block">Junjie Gao<sup>1*†</sup>,</span>
+                        <span class="author-block">Junjun Shan<sup>1†</sup>,</span><br>
+                        <span class="author-block">Kangning Liu<sup>1†</sup>,</span>
+                        <span class="author-block">Shudan Zhang<sup>12*†</sup>,</span>
+                        <span class="author-block">Shuntian Yao<sup>1*†</sup>,</span>
+                        <span class="author-block">Siyi Cheng<sup>1*†</sup>,</span>
+                        <span class="author-block">Wentao Yao<sup>12*†</sup>,</span><br>
+                        <span class="author-block">Wenyi Zhao<sup>1†</sup>,</span>
+                        <span class="author-block">Xinghan Liu<sup>12*†</sup>,</span>
+                        <span class="author-block">Xinyi Liu<sup>1†</sup>,</span>
+                        <span class="author-block">Xinying Chen<sup>1†</sup>,</span>
+                        <span class="author-block">Xinyue Yang<sup>1†</sup>,</span>
+                        <span class="author-block">Yang Yang<sup>1†</sup>,</span><br>
+                        <span class="author-block">Yifan Xu<sup>12*†</sup>,</span>
+                        <span class="author-block">Yu Yang<sup>1*†</sup>,</span>
+                        <span class="author-block">Yulin Xu<sup>1†</sup>,</span>
+                        <span class="author-block">Zehan Qi<sup>12*†</sup>,</span>
+                        <span class="author-block">Yuxiao Dong<sup>2</sup>,</span>
+                        <span class="author-block">Jie Tang<sup>2</sup></span>
+                    </div>
+
+                    <div class="is-size-5 publication-authors">
+                        <span class="author-block">Zhipu AI<sup>1</sup></span>
+                        <span class="author-block">Tsinghua University<sup>2</sup></span>
+                    </div>
+                    <i style="font-size: 15px !important;"><sup>*</sup> Work done while these authors interned at Zhipu
+                        AI.</sup></i><br>
+                    <i style="font-size: 15px !important;"><sup>†</sup> These authors are listed alphabetically by first
+                        names.</sup></i>
+
+                    <div class="column has-text-centered">
+                        <div class="publication-links">
+                            <!--<span class="link-block">
+                              <a href="https://arxiv.org/pdf/" class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                  <i class="fas fa-file-pdf"></i>
+                                </span>
+                                <span>Paper</span>
+                              </a>
+                            </span>-->
+                            <span class="link-block">
+                  <a href="" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                    </span>
+                    <span>arXiv (ongoing)</span>
+                  </a>
+                </span>
+                            <!--<span class="link-block">
+                              <a href="https://www.youtube.com/" class="external-link button is-normal is-rounded is-dark">
+                                <span class="icon">
+                                  <i class="fab fa-youtube"></i>
+                                </span>
+                                <span>Video</span>
+                              </a>
+                            </span>-->
+                            <span class="link-block">
+                  <a href="https://github.com/THUDM/AutoGLM"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-github"></i>
+                    </span>
+                    <span>Related Materials</span>
+                  </a>
+                </span>
+                            <span class="link-block">
+                  <a href="https://chromewebstore.google.com/detail/%E6%99%BA%E8%B0%B1%E6%B8%85%E8%A8%80-%E4%BD%A0%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8ai%E5%8A%A9%E6%89%8B/mnpdbmgpebfihcndnpgdaihnkmloclkd"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-chrome"></i>
+                    </span>
+                    <span>Try Qingyan Plugin</span>
+                  </a>
+                </span>
+                            <span class="link-block">
+                  <a href="https://chatglm.cn/main/gdetail/6715f75ec8d0a702dff1e4e6"
+                     class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon">
+                      <i class="fab fa-android"></i>
+                    </span>
+                    <span>Apply for Android Testing</span>
+                  </a>
+                </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="hero teaser">
+    <div class="container is-max-widescreen">
+        <div class="columns is-centered">
+            <div class="column highlight is-8 content">
+          <span style="font-weight:bold">
+            AutoGLM is a new series developed from <a href="https://github.com/THUDM/GLM-4">ChatGLM</a> family, which
+              targets autonomous mission completion agents via Graphical User Interfaces (GUIs) such as Phone and Web.
+              Its web use ability will be progressively available to public via <a
+                  href="https://chromewebstore.google.com/detail/%E6%99%BA%E8%B0%B1%E6%B8%85%E8%A8%80-%E4%BD%A0%E7%9A%84%E6%B5%8F%E8%A7%88%E5%99%A8ai%E5%8A%A9%E6%89%8B/mnpdbmgpebfihcndnpgdaihnkmloclkd">Qingyan Plugin</a>
+              and its phone use ability on Android is currently under invited internal testing (<a
+                  href="https://chatglm.cn/main/gdetail/6715f75ec8d0a702dff1e4e6">Application Form</a>).
+            <br>
+          </span>
+                <br>
+            </div>
+        </div>
+        <div class="column is-centered has-text-centered is-10 is-offset-1" id="teaserVideos">
+            <div class="columns is-centered is-variable is-0">
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(a) AutoGLM demonstration on Android (integrated version).</p>
+                    </div>
+                    <video class="video" controls playsinline loop>
+                        <source src="./static/videos/android_overall_video.m4v" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+            <br>
+            <div class="columns is-centered is-variable is-0">
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(a) AutoGLM demonstration on Web (integrated version).</p>
+                    </div>
+                    <video class="video" controls playsinline loop>
+                        <source src="./static/videos/web_overall_video.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Wait for user interaction to start playing videos
+            document.addEventListener('click', function () {
+                var videos = document.getElementById("teaserVideos").getElementsByClassName("video");
+                for (var i = 0; i < videos.length; i++) {
+                    videos[i].play().catch(error => {
+                        console.log('Video play failed:', error);
+                    });
+                }
+            }, {once: true});
+        </script>
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-widescreen">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Abstract</h2>
+                <div class="content has-text-justified">
+                    <md-block>
+                        We present AutoGLM, a new series in the ChatGLM family~\cite{glm2024chatglm}, designed to serve
+                        as foundation agents for autonomous control of digital devices through Graphical User Interfaces
+                        (GUIs).
+                        While foundation models excel at acquiring human knowledge, they often struggle with
+                        decision-making in dynamic real-world environments, limiting their progress toward artificial
+                        general intelligence.
+                        This limitation underscores the importance of developing foundation agents capable of learning
+                        through autonomous environmental interactions by reinforcing existing models.
+                        Focusing on Web Browser and Android as representative GUI scenarios, we have developed AutoGLM
+                        as a practical foundation agent system for real-world GUI interactions.
+                        Our approach integrates a comprehensive suite of techniques and infrastructures to create
+                        deployable agent systems suitable for user delivery.
+                        Through this development, we have derived two key insights:
+                        First, the design of an appropriate "intermediate interface" for GUI control is crucial,
+                        enabling the separation of planning and grounding behaviors, which require distinct optimization
+                        for flexibility and accuracy respectively.
+                        Second, we have developed a novel progressive training framework that enables self-evolving
+                        online curriculum reinforcement learning with AutoGLM.
+                        Our evaluations demonstrate AutoGLM's effectiveness across multiple domains.
+                        For web browsing, AutoGLM achieves a 55.2\% success rate on VAB-WebArena-Lite (improving to
+                        59.1\% with a second attempt) and 96.2\% on OpenTable evaluation tasks.
+                        In Android device control, AutoGLM attains a 36.2\% success rate on AndroidLab (VAB-Mobile) and
+                        89.7\% on common tasks in popular Chinese APPs.
+                    </md-block>
+                </div>
+                <br>
+<!--                <div class="content has-text-justified">-->
+<!--                    <md-block>-->
+<!--                    </md-block>-->
+<!--                </div>-->
+            </div>
+        </div>
+        <!--/ Abstract. -->
+    </div>
+</section>
+
+
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+            <a class="icon-link" href="https://github.com/OSU-NLP-Group/Mind2Web" class="external-link" disabled>
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content">
+                    <p>
+                        This website is licensed under a <a rel="license"
+                                                            href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+                        Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p>
+                    <p>
+                        This means you are free to borrow the <a href="https://github.com/OSU-NLP-Group/Mind2Web">source
+                        code</a> of this website (the website is hosted on the gh-pages branch of the repository),
+                        we just ask that you link back to this page in the footer.
+                        The design of this website is based on <a href="https://nerfies.github.io/">NERFies</a> ,<a
+                            href="https://ds1000-code-gen.github.io/" target="_blank">DS-1000</a>, <a
+                            href="https://webshop-pnlp.github.io/" target="_blank">WebShop</a>, and <a
+                            href="https://osu-nlp-group.github.io/Mind2Web/" target="_blank">Mind2Web</a>. Please
+                        remember to remove the analytics code included in the header of the website which you do not
+                        want on
+                        your website. </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>
