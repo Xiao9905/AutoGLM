@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="description" content="AutoGLM: Autonomous Foundation Agents for GUI">
+    <meta name="description" content="AutoGLM: Autonomous Foundation Agents for GUIs">
     <meta name="keywords" content="Autonomous GUI Agents for Web and Phone Use">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>AutoGLM</title>
@@ -101,7 +101,7 @@
             <div class="columns is-centered">
                 <div class="column has-text-centered">
                     <h1 class="title is-1 publication-title">
-                        AutoGLM: Autonomous Foundation Agents for GUI
+                        AutoGLM: Autonomous Foundation Agents for GUIs
                     </h1>
                     <div class="is-size-5 publication-authors">
                         <span class="author-block">Xiao Liu<sup>12</sup>,</span>
@@ -113,7 +113,8 @@
                         <span class="author-block">Hanlin Zhao<sup>1†</sup>,</span>
                         <span class="author-block">Iat Long Iong<sup>12*†</sup>,</span>
                         <span class="author-block">Jiadai Sun<sup>1†</sup>,</span>
-                        <span class="author-block">Junjie Gao<sup>1*†</sup>,</span>
+                        <span class="author-block">Jiaqi Wang<sup>1†</sup>,</span>
+                        <span class="author-block">Junjie Gao<sup>1†</sup>,</span>
                         <span class="author-block">Junjun Shan<sup>1†</sup>,</span><br>
                         <span class="author-block">Kangning Liu<sup>1†</sup>,</span>
                         <span class="author-block">Shudan Zhang<sup>12*†</sup>,</span>
@@ -127,7 +128,8 @@
                         <span class="author-block">Xinyue Yang<sup>1†</sup>,</span>
                         <span class="author-block">Yang Yang<sup>1†</sup>,</span><br>
                         <span class="author-block">Yifan Xu<sup>12*†</sup>,</span>
-                        <span class="author-block">Yu Yang<sup>1*†</sup>,</span>
+                        <span class="author-block">Yu Yang<sup>1†</sup>,</span>
+                        <span class="author-block">Yujia Wang<sup>1†</sup>,</span>
                         <span class="author-block">Yulin Xu<sup>1†</sup>,</span>
                         <span class="author-block">Zehan Qi<sup>12*†</sup>,</span>
                         <span class="author-block">Yuxiao Dong<sup>2</sup>,</span>
@@ -224,10 +226,10 @@
             <div class="columns is-centered is-variable is-0">
                 <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
                     <div class="overlay">
-                        <p>(a) AutoGLM demonstration on Android (integrated version).</p>
+                        <p>(a) AutoGLM demonstration on Phone (integrated version).</p>
                     </div>
                     <video class="video" controls playsinline loop>
-                        <source src="./static/videos/android_overall_video.mp4" type="video/mp4">
+                        <source src="./static/videos/phone_overall_video.mp4" type="video/mp4">
                     </video>
                 </div>
             </div>
@@ -247,12 +249,12 @@
         <script>
             // Wait for user interaction to start playing videos
             document.addEventListener('click', function () {
-                var videos = document.getElementById("teaserVideos").getElementsByClassName("video");
-                for (var i = 0; i < videos.length; i++) {
-                    videos[i].play().catch(error => {
-                        console.log('Video play failed:', error);
-                    });
-                }
+                // var videos = document.getElementById("teaserVideos").getElementsByClassName("video");
+                // for (var i = 0; i < videos.length; i++) {
+                //     videos[i].play().catch(error => {
+                //         console.log('Video play failed:', error);
+                //     });
+                // }
             }, {once: true});
         </script>
     </div>
@@ -293,13 +295,215 @@
                     </md-block>
                 </div>
                 <br>
-<!--                <div class="content has-text-justified">-->
-<!--                    <md-block>-->
-<!--                    </md-block>-->
-<!--                </div>-->
+                <!--                <div class="content has-text-justified">-->
+                <!--                    <md-block>-->
+                <!--                    </md-block>-->
+                <!--                </div>-->
             </div>
         </div>
         <!--/ Abstract. -->
+    </div>
+</section>
+
+
+<section class="section">
+    <div class="container is-max-widescreen">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Phone Use <b>(Real Speed Recording)</b></h2>
+                <br>
+                <!--                <div class="content has-text-justified">-->
+                <!--                    <md-block>-->
+                <!--                    </md-block>-->
+                <!--                </div>-->
+            </div>
+        </div>
+        <!--/ Abstract. -->
+        <div class="column is-centered has-text-centered is-10 is-offset-1">
+            <div class="columns is-centered is-variable is-0">
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(a) [Gmail] Write an email querying about the project progress with subject hi to harry66@gmail.com, scheduled to send on Oct.30 8:00 AM</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/phone/gmail_example.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(b) [Google Maps] Find the nearest top rated coffee shop and direct me there on foot</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/phone/google_map_example.mp4" type="video/mp4">
+                    </video>
+
+                </div>
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(c) [Temu] Add two paris of top saled running shoes for women of size 7.5 to my cart</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/phone/temu_example.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(d) [X] Help me find AK's homepage url</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/phone/x_example.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-centered has-text-centered is-10 is-offset-1">
+            <div class="columns is-centered is-variable is-0">
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(f) 在美团上点一杯瑞幸咖啡的标准美式，半糖</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/phone/meituan_example.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(g) 在大众点评上给全聚德清华科技园店写一个五星好评</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/phone/dianping_example.mp4" type="video/mp4">
+                    </video>
+
+                </div>
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(h) 在微信上给老板最近的一条朋友圈点赞，并评论“深有启发”</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/phone/wechat_example.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(i) 在携程上订一家11月5到到10号上海迪士尼附近评价最好的酒店</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/phone/xiecheng_example.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container is-max-widescreen">
+        <!-- Abstract. -->
+        <div class="columns is-centered has-text-centered">
+            <div class="column is-four-fifths">
+                <h2 class="title is-3">Web Browser Use <b>(Real Speed Recording)</b></h2>
+                <br>
+                <!--                <div class="content has-text-justified">-->
+                <!--                    <md-block>-->
+                <!--                    </md-block>-->
+                <!--                </div>-->
+            </div>
+        </div>
+        <!--/ Abstract. -->
+        <div class="column is-centered has-text-centered is-10 is-offset-1">
+            <div class="columns is-centered is-variable is-0">
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(a) Secure a table on OpenTable for 2 people at Saffron Fine Indian Cuisine on Nov.6 2024 at
+                            7:30 PM?</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/web/opentable_example_1.mp4" type="video/mp4">
+                    </video>
+
+                </div>
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(b) Check my issues and create an issue called "excellent engineer wanted" for project Zhipu
+                            AI on GitLab. </p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/web/gitlab_example_2.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(c) Show me the "chairs"listings by ascending price on OneStopShop.</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/web/onestopshop_example.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-centered has-text-centered is-10 is-offset-1">
+            <div class="columns is-centered is-variable is-0">
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(d) Reserve for my parents and I at Megan's Kitchen on Oct. 23, 2024 7:30 PM</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/web/opentable_example_2.mp4" type="video/mp4">
+                    </video>
+
+                </div>
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(e) Set all reviews with keyword "sweet" to approved on Client Management System.</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/web/cms_example_1.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(f) Get durations to first drive from MIT to Harvard, and then from Harvard to Boston
+                            Airport</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/web/openstreetmap_example_1.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+
+        <div class="column is-centered has-text-centered is-10 is-offset-1">
+            <div class="columns is-centered is-variable is-0">
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(g) 在小红书上，帮我找找热度最高的罗马旅游的图文攻略，并特别总结一下提到了哪些必去的景点</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/web/xiaohongshu_example.mp4" type="video/mp4">
+                    </video>
+
+                </div>
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(h) 总结一下 deepspeed 有哪些节省显存的策略，参考最多赞同的文章</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/web/zhihu_example.mp4" type="video/mp4">
+                    </video>
+                </div>
+                <div class="column" style="position:relative; width:100%; padding:0px; font-size:0em">
+                    <div class="overlay">
+                        <p>(i) 检索知识图谱最新的学术期刊发表内容，只看北大核心</p>
+                    </div>
+                    <video class="video" controls autoplay playsinline muted loop>
+                        <source src="./static/videos/web/cnki_example.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
     </div>
 </section>
 
