@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="AutoGLM Goes Open Source: Unlocking the AI Phone for Everyone">
+    <meta name="keywords" content="AutoGLM, Open-AutoGLM, Phone Agent, GUI Agent, Open Source, Blog">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AutoGLM Blog</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-MZNP3SCQ1V"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-MZNP3SCQ1V');
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./static/css/bulma.min.css">
+    <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <link rel="stylesheet" href="./static/css/index.css">
+    <link rel="icon" href="./static/images/favicon.svg">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script defer src="./static/js/fontawesome.all.min.js"></script>
+
+    <style>
+        :root {
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f8f8;
+            --bg-tertiary: #f0f0f0;
+            --text-primary: #0a0a0a;
+            --text-secondary: #555555;
+            --text-muted: #888888;
+            --accent: #0a0a0a;
+            --border-color: #e0e0e0;
+        }
+
+        * {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-primary);
+            color: var(--text-primary);
+            min-height: 100vh;
+        }
+
+        /* Navbar Override */
+        .navbar {
+            background-color: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .navbar-item, .navbar-link {
+            color: var(--text-secondary) !important;
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 0.01em;
+        }
+        .navbar-item:hover, .navbar-link:hover {
+            background-color: transparent !important;
+            color: var(--text-primary) !important;
+        }
+        .navbar-dropdown {
+            background-color: var(--bg-secondary);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+        }
+        .navbar-dropdown .navbar-item {
+            color: var(--text-secondary) !important;
+        }
+        .navbar-dropdown .navbar-item:hover {
+            background-color: var(--bg-tertiary) !important;
+            color: var(--text-primary) !important;
+        }
+
+        /* Blog Header */
+        .blog-header {
+            padding: 120px 24px 80px;
+            text-align: center;
+            background: var(--bg-primary);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .blog-header .tag-line {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 500;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            padding: 8px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 100px;
+        }
+        .blog-header h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        .blog-header .subtitle {
+            font-size: 1.25rem;
+            font-weight: 400;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        .blog-header .date {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            font-weight: 400;
+        }
+
+        /* Blog Content */
+        .blog-section {
+            background-color: var(--bg-primary);
+            padding: 80px 24px;
+        }
+        .blog-content {
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin-bottom: 48px;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .back-link:hover {
+            color: var(--text-primary);
+        }
+
+        .blog-content h3 {
+            font-size: 1.75rem;
+            font-weight: 600;
+            letter-spacing: -0.02em;
+            margin-top: 64px;
+            margin-bottom: 24px;
+            color: var(--text-primary);
+        }
+        .blog-content h3:first-of-type {
+            margin-top: 0;
+        }
+        .blog-content h4 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            margin-top: 48px;
+            margin-bottom: 16px;
+            color: var(--text-primary);
+        }
+        .blog-content p {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 24px;
+        }
+        .blog-content blockquote {
+            margin: 32px 0;
+            padding: 24px 32px;
+            background-color: var(--bg-secondary);
+            border-left: 2px solid var(--text-primary);
+            border-radius: 0 8px 8px 0;
+        }
+        .blog-content blockquote p {
+            font-size: 1.125rem;
+            font-weight: 500;
+            font-style: normal;
+            color: var(--text-primary);
+            margin-bottom: 0;
+        }
+        .blog-content ul {
+            margin: 24px 0;
+            padding-left: 0;
+            list-style: none;
+        }
+        .blog-content li {
+            font-size: 1.0625rem;
+            line-height: 1.75;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            padding-left: 24px;
+            position: relative;
+        }
+        .blog-content li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 12px;
+            width: 6px;
+            height: 6px;
+            background-color: var(--text-muted);
+            border-radius: 50%;
+        }
+        .blog-content strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+        .blog-content em {
+            font-style: italic;
+        }
+
+        /* Footer Override */
+        .footer {
+            background-color: var(--bg-primary);
+            border-top: 1px solid var(--border-color);
+            padding: 48px 24px;
+        }
+        .footer .content p {
+            color: var(--text-muted);
+            font-size: 0.875rem;
+        }
+        .footer a {
+            color: var(--text-secondary);
+        }
+        .footer a:hover {
+            color: var(--text-primary);
+        }
+        .footer .icon-link {
+            color: var(--text-muted);
+        }
+        .footer .icon-link:hover {
+            color: var(--text-primary);
+        }
+
+        /* Divider */
+        .section-divider {
+            width: 100%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--border-color), transparent);
+            margin: 64px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+        </a>
+    </div>
+    <div class="navbar-menu">
+        <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+            <a class="navbar-item" href="https://github.com/THUDM">
+                <span class="icon">
+                    <i class="fas fa-home"></i>
+                </span>
+            </a>
+
+            <a class="navbar-item" href="index.html">
+                Home
+            </a>
+
+            <a class="navbar-item" href="blog.html">
+                Blog
+            </a>
+
+            <div class="navbar-item has-dropdown is-hoverable">
+                <a class="navbar-link">
+                    More Research
+                </a>
+                <div class="navbar-dropdown">
+                    <a class="navbar-item" href="https://github.com/zai-org/Open-AutoGLM">
+                        <strong>Open-AutoGLM</strong>
+                    </a>
+                    <a class="navbar-item" href="https://arxiv.org/abs/2308.03688">
+                        AgentBench
+                    </a>
+                    <a class="navbar-item" href="https://arxiv.org/abs/2404.03648">
+                        AutoWebGLM
+                    </a>
+                    <a class="navbar-item" href="https://arxiv.org/abs/2408.06327">
+                        VisualAgentBench
+                    </a>
+                    <a class="navbar-item" href="https://arxiv.org/abs/2509.18119">
+                        MobileRL
+                    </a>
+                    <a class="navbar-item" href="https://arxiv.org/abs/2508.14040">
+                        ComputerRL
+                    </a>
+                    <a class="navbar-item" href="https://arxiv.org/abs/2510.04206">
+                        AgentRL
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</nav>
+
+<div class="blog-header">
+    <div class="tag-line">Blog Post</div>
+    <h1>AutoGLM Goes Open Source</h1>
+    <p class="subtitle">Unlocking the AI Phone for Everyone</p>
+    <p class="date">December 8, 2025</p>
+</div>
+
+<section class="blog-section">
+    <div class="blog-content">
+        <a href="index.html" class="back-link">
+            <i class="fas fa-arrow-left"></i>
+            Back to Home
+        </a>
+
+        <h3>I. What exactly have we been trying to achieve?</h3>
+
+        <p>For a long time, we have been obsessed with answering one single question:</p>
+
+        <blockquote>
+            <p>If AI is truly an "Assistant," can it actually pick up a phone like a human and finish a task from start to finish?</p>
+        </blockquote>
+
+        <p>In our vision, AI shouldn't just live inside a chat box. It should step out and walk into the Apps you actually use every day:</p>
+
+        <ul>
+            <li>It should help you navigate a food delivery app, from selection to checkout;</li>
+            <li>It should manage your cloud phone, batch-processing notifications, likes, and comments;</li>
+            <li>It should handle the sales, customer service, and attendance workflows—automatically finishing those repetitive actions you dread doing yourself.</li>
+        </ul>
+
+        <p>This is what AutoGLM is about: <strong>Teaching AI the true art of "Device Agency."</strong></p>
+
+        <div class="section-divider"></div>
+
+        <h3>II. 32 Months: From Chaos to Control</h3>
+
+        <p>To put it simply: <strong>We wanted AutoGLM to not just "speak," but to "act."</strong></p>
+
+        <p>To make that sentence a reality, we started from scratch in April 2023—back when most people hadn't even heard of Large Language Models—and spent 32 months exploring every single detail.</p>
+
+        <h4>1. From "Random Taps" to "Precision Control"</h4>
+
+        <p>In our earliest versions, the system built on the large model only understood basic actions like "tap" or "swipe." It could occasionally finish a short workflow, but more often, it would get lost in nonsensical operations or fall into infinite loops.</p>
+
+        <p>To fix this, we spent nearly a year mapping out every possible failure. We tried to turn those "clumsy hands" into "capable hands":</p>
+
+        <ul>
+            <li>We built a comprehensive <strong>Phone Use capability framework</strong>;</li>
+            <li>We abstracted the most fundamental actions: clicking, scrolling, typing, taking screenshots, and UI understanding;</li>
+            <li>We taught the model to decompose a natural language command into a stable, replayable sequence of operations;</li>
+            <li>We taught it to navigate the <strong>"environmental friction"</strong> of the real world: network jitters, intrusive pop-ups, and the chaos of ad overlays.</li>
+        </ul>
+
+        <p>On <strong>October 25, 2024</strong>, we released the first AutoGLM capable of stably completing a full operation chain on a real device. It was regarded by the industry as the world's first AI Agent with true <strong>Phone Use</strong> capabilities.</p>
+
+        <div style="margin: 32px 0;">
+            <video controls playsinline loop style="width: 100%; border-radius: 8px; border: 1px solid var(--border-color);">
+                <source src="./static/videos/phone_overall_video-en.mp4" type="video/mp4">
+            </video>
+        </div>
+
+        <h4>2. The First "Digital Cash Gift" Sent by AI</h4>
+
+        <p>In <strong>November 2024</strong>, AutoGLM achieved a milestone: it sent the first AI-automated "Red Packet" (digital cash gift) in human history.</p>
+
+        <p>It wasn't a script, and it wasn't an internal API call. It was the AI "seeing" the screen, "understanding" the context, and clicking through the banking interface step-by-step.</p>
+
+        <p>To us, this was a signal: <strong>From now on, many interactions on your phone can finally be fully handed over to AI.</strong></p>
+
+        <h4>3. Moving to the Cloud: A Safer Sandbox</h4>
+
+        <p>In <strong>2025</strong>, we released <strong>AutoGLM 2.0</strong>. We validated the scaling laws of Reinforcement Learning (RL), introducing <strong>MobileRL, ComputerRL, and AgentRL</strong> algorithms. This allowed AutoGLM to learn simultaneously across thousands of virtual environments, drastically expanding the Agent's accuracy and generalization capabilities.</p>
+
+        <p>More importantly, we didn't want the Agent to operate recklessly on a user's real phone or personal WeChat. So, we chose to place it in a virtual phone, detached from the user's physical reality:</p>
+
+        <ul>
+            <li>This phone runs in the cloud;</li>
+            <li>Every action can be replayed, audited, and intervened upon;</li>
+            <li>Truly sensitive data remains strictly isolated.</li>
+        </ul>
+
+        <p>The intuition behind this design is simple: <strong>Before AI learns to use a phone, we must ensure it doesn't reach into places it shouldn't touch.</strong></p>
+
+        <div class="section-divider"></div>
+
+        <h3>III. Why Open Source? What do we truly care about?</h3>
+
+        <p>From a product perspective, AutoGLM is already powering many real-world scenarios. From an engineering perspective, our accumulated knowledge is enough to fill a stack of technical reports.</p>
+
+        <p>So, why choose to open source it at this specific moment? There are three things we have thought through clearly.</p>
+
+        <h4>1. It is not enough for one company to do this alone.</h4>
+
+        <p>The "AI Phone" is already a trend. But if the capability of "Phone Use" remains in the hands of a few manufacturers, it implies two things:</p>
+
+        <ul>
+            <li>The innovation space for developers will depend on whether platforms are willing to open their APIs;</li>
+            <li>The most important device in a user's daily life will increasingly become a <strong>"Walled Garden"</strong>—a gateway controlled by others.</li>
+        </ul>
+
+        <p>The primary intent of open-sourcing AutoGLM is to turn this capability into a public foundation that the entire industry can own and polish together.</p>
+
+        <p>You can treat it as a building block. Put it into your system, or tear it apart, rewrite it, and transform it. From that moment on, it is no longer just "Zhipu's AutoGLM"—it is part of what you and your team have built.</p>
+
+        <h4>2. Returning Privacy and Control to the User</h4>
+
+        <p>We are well aware that once <strong>Phone Use</strong> capabilities scale, they inevitably touch the most sensitive parts of the world: Personal chats, payments, logs, photo albums, and internal enterprise systems.</p>
+
+        <p>We do not want, nor should we have, these things in our hands.</p>
+
+        <p>Through open source and private deployment, enterprises and developers can fully control their data, logs, and permissions within their own compliant environments. It allows the phone to become an AI phone that exclusively belongs to <em>you</em>.</p>
+
+        <p>In one sentence: <strong>Technology is open to the ecosystem; Data and Privacy remain forever on the user's side.</strong></p>
+
+        <h4>3. Turning our path into the starting line for the "Agent Era"</h4>
+
+        <p>AutoGLM has been a steep climb. We've chewed through technical problems, stepped into pitfalls, and rewritten frameworks. This path is reusable in many scenarios, and it <em>deserves</em> to be reused. But "a single flower does not make a spring." The explosion of Agents requires everyone to participate.</p>
+
+        <p>What we would love to see is:</p>
+
+        <ul>
+            <li>Teams building truly <strong>AI-Native phones</strong> based on AutoGLM;</li>
+            <li>Researchers extracting a module to write a paper or create a new algorithm;</li>
+            <li>Individual developers turning a demo into a passion project that runs perfectly in a niche scenario.</li>
+        </ul>
+
+        <p><strong>We hope that starting today, everyone can own their own mobile Agent.</strong></p>
+
+        <div class="section-divider"></div>
+
+        <h3>IV. What can you get right now?</h3>
+
+        <p>What we are open-sourcing is a suite of <strong>"ready-to-use"</strong> capabilities, not just a conceptual explanation. Specifically, this includes:</p>
+
+        <ul>
+            <li><strong>Pre-trained Core Models & Inference Code</strong></li>
+            <li><strong>The "Phone Use" Capability Framework & Toolchain</strong></li>
+            <li><strong>Runnable Demos</strong> covering 50+ high-frequency Chinese Apps</li>
+            <li><strong>Android Adaptation Layer & Example Projects</strong></li>
+            <li><strong>Documentation & Quick Start Guides</strong></li>
+        </ul>
+
+        <p>The models are released under the <strong>MIT License</strong>, and all code is under the <strong>Apache-2.0 License</strong>, hosted on GitHub.</p>
+
+        <p>You can use it as ready-made infrastructure, cannibalize parts of it, or modify it beyond recognition—as long as it helps you get closer to the <strong>"AI Native Phone"</strong> in your mind.</p>
+
+        <div class="section-divider"></div>
+
+        <h3>V. What's Next?</h3>
+
+        <p>The current AutoGLM is not a perfect answer. It hasn't seen all the phones and apps in the real world yet. The future AI phone ecosystem will certainly take forms even more surprising than what we imagine today.</p>
+
+        <p>What we have done is simply handed a complete answer to the question <em>"Can AI use a phone?"</em>—honestly and authentically—into your hands.</p>
+
+        <p>At this moment, at the end of 2025, as <strong>Andrej Karpathy</strong> recently noted, we are facing not just the "Year of the Agent," but arguably the <strong>"Decade of the Agent."</strong></p>
+
+        <p>Moving forward, AutoGLM will keep pushing. Let us drive Agent open source and research together. So that the "Jarvis" of our dreams will finally appear, for real, beside every one of us.</p>
+
+    </div>
+</section>
+
+<footer class="footer">
+    <div class="container">
+        <div class="content has-text-centered">
+            <a class="icon-link" href="https://github.com/THUDM">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
+        <div class="columns is-centered">
+            <div class="column is-8">
+                <div class="content has-text-centered">
+                    <p>
+                        This website is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</body>
+
+</html>

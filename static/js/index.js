@@ -43,7 +43,7 @@ $(document).ready(function() {
 
     // Loop on each carousel initialized
     for(var i = 0; i < carousels.length; i++) {
-    	// Add listener to  event
+    	// Add listener to event
     	carousels[i].on('before:show', state => {
     		console.log(state);
     	});
